@@ -1,0 +1,27 @@
+# 本地开发环境配置
+app:
+  prefix: ''
+  port: 8080
+
+db:
+  mysql:
+    host: 'localhost'
+    username: 'root'
+    password: 'tcct1019'
+    database: 'nest-admin'
+    port: 3306
+    charset: 'utf8mb4'
+    logger: 'file'
+    logging: true
+    dropSchema: false #每次初始化数据源时都会删除架构。请小心此选项，不要在生产中使用它 - 否则你将丢失所有生产数据。该选项在调试和开发期间很有用。
+    synchronize: false # 生产环境请勿开启
+    supportBigNumbers: true # 当处理数据库中的大数字（BIGINT 和 DECIMAL 列）时，你应该启用此选项（默认值：true)
+    bigNumberStrings: true
+
+# redis 配置
+redis:
+  host: 'localhost'
+  prot: 6379
+  password: ''
+  db: 0,
+  keyPrefix: ''
