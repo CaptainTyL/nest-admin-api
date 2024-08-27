@@ -6,6 +6,11 @@ import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { RedisModule } from './module/redis/redis.module';
 import { RedisClientOptions } from '@liaoliaots/nestjs-redis';
 import { MainModule } from './module/main/main.module';
+import { PostModule } from './module/system/post/post.module';
+import { DeptModule } from './module/system/dept/dept.module';
+import { MenuModule } from './module/system/menu/menu.module';
+import { RoleModule } from './module/system/role/role.module';
+import { UserModule } from './module/system/user/user.module';
 
 @Module({
   imports: [
@@ -45,6 +50,11 @@ import { MainModule } from './module/main/main.module';
     }),
 
     MainModule,
+    PostModule,
+    DeptModule,
+    MenuModule,
+    RoleModule,
+    UserModule,
   ],
 })
 export class AppModule {}

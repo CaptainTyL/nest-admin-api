@@ -17,7 +17,9 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "migration": "ts-node ./src/common/scripts/migration.ts"
   },
   "dependencies": {
     "@liaoliaots/nestjs-redis": "^9.0.5",
@@ -29,7 +31,10 @@
     "@nestjs/platform-express": "^10.0.0",
     "@nestjs/typeorm": "^10.0.2",
     "cache-manager": "^5.7.6",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
     "cross-env": "^7.0.3",
+    "dayjs": "^1.11.12",
     "ioredis": "^5.4.1",
     "js-yaml": "^4.1.0",
     "mysql2": "^3.11.0",
@@ -48,9 +53,11 @@
     "@types/supertest": "^6.0.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
+    "chalk": "4",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "inquirer": "8",
     "jest": "^29.5.0",
     "prettier": "^3.0.0",
     "source-map-support": "^0.5.21",

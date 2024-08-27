@@ -10,8 +10,6 @@ const configFileNameObj = {
 
 const env = process.env.NODE_ENV;
 
-console.log(env);
-
 const YAML_CONFIG_FILENAME = `./${configFileNameObj[env]}.yaml`;
 
 export default () => {
