@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Module, Global } from '@nestjs/common';
 
 import configuration from './config/configuration';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -11,7 +11,11 @@ import { DeptModule } from './module/system/dept/dept.module';
 import { MenuModule } from './module/system/menu/menu.module';
 import { RoleModule } from './module/system/role/role.module';
 import { UserModule } from './module/system/user/user.module';
+import { APP_GUARD } from '@nestjs/core';
+import { JwtAuthGuard } from './common/guards/auth.guard';
+import { AuthModule } from './module/system/auth/auth.module';
 
+@Global()
 @Module({
   imports: [
     // 配置模块
@@ -55,6 +59,15 @@ import { UserModule } from './module/system/user/user.module';
     MenuModule,
     RoleModule,
     UserModule,
+    AuthModule,
+  ],
+
+  // 全局引入token验证守卫
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: JwtAuthGuard,
+    },
   ],
 })
 export class AppModule {}

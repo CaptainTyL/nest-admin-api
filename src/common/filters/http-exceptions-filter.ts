@@ -18,7 +18,9 @@ export class HttpExceptionsFilter implements ExceptionFilter {
     response.status(200).json({
       code: status,
       msg: exceptionResponse?.message
-        ? exceptionResponse?.message[0]
+        ? Array.isArray(exceptionResponse?.message)
+          ? exceptionResponse?.message[0]
+          : exceptionResponse?.message
         : `Service Error:${response.message}`,
       data: null,
     });

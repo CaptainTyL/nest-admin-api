@@ -2,7 +2,7 @@ import { CreateRoleDto, ListRoleDto, UpdateRoleDto } from './dto/index';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { SysRoleEntity } from './entities/role.entity';
-import { In, Repository } from 'typeorm';
+import { FindManyOptions, In, Repository } from 'typeorm';
 import { SysRoleWithMenuEntity } from './entities/role-with-menu.entity';
 import { ResultData } from 'src/common/utils/result';
 
@@ -126,5 +126,14 @@ export class RoleService {
       },
     );
     return ResultData.ok();
+  }
+
+  /**
+   * 查询多条匹配条件的角色信息数据
+   */
+
+  async findRoles(where: FindManyOptions<SysRoleEntity>) {
+    // 结果返回多条角色信息数据
+    return await this.sysRoleEntityRep.find(where);
   }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { SysPostEntity } from './entities/post.entity';
-import { Repository, In } from 'typeorm';
+import { Repository, In, FindManyOptions } from 'typeorm';
 import { CreatePostDto, ListPostDto, UpdatePostDto } from './dto';
 import { ResultData } from 'src/common/utils/result';
 
@@ -57,5 +57,9 @@ export class PostService {
       { delFlag: '1' },
     );
     return ResultData.ok();
+  }
+
+  async findPosts(where: FindManyOptions<SysPostEntity>) {
+    return await this.sysPostEntityRep.find(where);
   }
 }

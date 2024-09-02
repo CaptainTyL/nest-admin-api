@@ -6,7 +6,7 @@ import {
 } from '@liaoliaots/nestjs-redis';
 
 // 二次封装RedisMoule后导出
-@Global()
+@Global() // 声明为全局模块
 @Module({
   providers: [RedisService],
   exports: [RedisService],
